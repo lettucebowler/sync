@@ -33,7 +33,7 @@ for dir, dirs, files in os.walk(src):
         for dest in destinations:
             fullpath = os.path.join(dir, filename)
             print "Copying '" + filename + "' to folder '" + dest + "'"
-            cmd = rsync + ' "' + fullpath + '" "' + dest + '/."'
+            cmd = rsync -rt + ' "' + fullpath + '" "' + dest + '/."'
             process = subprocess.Popen(cmd, shell=True)
             try:
                 process.wait()
