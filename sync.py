@@ -4,8 +4,7 @@ destinations = {
     #remote sync destinations
     '192.168.122.75:/home/lettucebowler/Documents/',
     '192.168.122.82:/home/lettucebowler/Documents/',
-    '192.168.122.26:/home/lettucebowler/Documents/',
-    '192.168.122.1:/home/lettucebowler/Documents/'
+    '192.168.122.26:/home/lettucebowler/Documents/'
 }
 
 src   = '/home/lettucebowler/Documents/'
@@ -33,7 +32,7 @@ for dir, dirs, files in os.walk(src):
         for dest in destinations:
             fullpath = os.path.join(dir, filename)
             print "Copying '" + filename + "' to folder '" + dest + "'"
-            cmd = rsync -rt + ' "' + fullpath + '" "' + dest + '/."'
+            cmd = rsync + ' "' + fullpath + '" "' + dest + '/."'
             process = subprocess.Popen(cmd, shell=True)
             try:
                 process.wait()
