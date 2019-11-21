@@ -17,7 +17,7 @@ import sys;
 import subprocess;
 
 #sync files from local folder to server
-cmd1 = "rsync --times -avs -i /home/lettucebowler/.ssh/id_rsa.pub '" + src + "' '" + dest + "'"
+cmd1 = "rsync --times -avs -e \" ssh -i /home/lettucebowler/.ssh/id_rsa.pub\" '" + src + "' '" + dest + "'"
 process1 = subprocess.Popen(cmd1, shell=True)
 
 try:
@@ -27,7 +27,7 @@ except KeyboardInterrupt:
     sys.exit(1)
 
 #sync files from server to local folder
-cmd2 = "rsync --times -avs -i /home/lettucebowler/.ssh/id_rsa.pub '" + dest + "' '" + src + "'"
+cmd2 = "rsync --times -avs -e \" ssh -i /home/lettucebowler/.ssh/id_rsa.pub\" '" + dest + "' '" + src + "'"
 process2 = subprocess.Popen(cmd2, shell=True)
 
 try:
