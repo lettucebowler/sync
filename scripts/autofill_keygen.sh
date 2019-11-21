@@ -1,7 +1,8 @@
 #!/usr/bin/expect -f
 
-set timeout 0.5
+set timeout -1
 spawn ./scripts/keygen_and_transfer.sh
+
 expect ":"
 send "\r"
 expect ":"
