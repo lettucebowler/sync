@@ -22,8 +22,6 @@ destinations
 if sys.stdout.isatty():
     rsync = rsync + '--progress '
 
-
-
 for dir, dirs, files in os.walk(src):
     for filename in files:
         if filename.startswith(".") or filename.endswith(".part"):
@@ -35,7 +33,7 @@ for dir, dirs, files in os.walk(src):
             process = subprocess.Popen(cmd, shell=True)
             try:
                 process.wait()
-            except KeyboardInterrupt:
-                process.kill()
-                sys.exit(1)
+            # except KeyboardInterrupt:
+            #     process.kill()
+            #     sys.exit(1)
                 break
