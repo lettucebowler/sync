@@ -33,7 +33,7 @@ for dir, dirs, files in os.walk(src):
             process = subprocess.Popen(cmd, shell=True)
             try:
                 process.wait()
-            # except KeyboardInterrupt:
-            #     process.kill()
-            #     sys.exit(1)
-            break
+            except KeyboardInterrupt:
+                process.kill()
+                sys.exit(1)
+                break
