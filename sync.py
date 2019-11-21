@@ -36,4 +36,4 @@ for dir, dirs, files in os.walk(src):
             # except KeyboardInterrupt:
             #     process.kill()
             #     sys.exit(1)
-                break
+            break
