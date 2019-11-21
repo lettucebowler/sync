@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 src   = '~/Documents/'
-dest = '192.168.122.166:/home/shared/Documents/'
+dest = 'pebble.lettucebowler.net:/home/shared/Documents/'
 
 # ----------------------------------------------------------
 
