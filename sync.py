@@ -7,7 +7,7 @@ destinations = {
     '192.168.122.26:/home/lettucebowler/Documents/'
 }
 
-src   = '/home/lettucebowler/Documents/''
+src   = '/home/lettucebowler/Documents/'
 rsync = 'rsync --times '
 
 # ----------------------------------------------------------
