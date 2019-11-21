@@ -2,7 +2,7 @@
 
 set timeout 0.5
 spawn ./scripts/keygen_and_transfer.sh
-expect "[Y/n]"
+expect "[Y/n] "
 send "y\r"
 expect ":"
 send "\r"
