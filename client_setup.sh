@@ -21,7 +21,7 @@ echo "
 while true
 do
     /home/$USER/.Lettucebox/pebble.lettucebowler.net.py
-    sleep 1s
+    sleep 30s
 done" >> /home/$USER/.Lettucebox/sync.sh
 sudo chmod 0755 /home/$USER/.Lettucebox/sync.sh
 sudo chown root:root /home/$USER/.Lettucebox/sync.sh
@@ -30,10 +30,6 @@ echo "
 /home/$USER/.Lettucebox/sync.sh&
 disown" >> ~/.bashrc
 
-rsync --times -as --delete -e "ssh -i ~/.ssh/Lettucebox"  + shared@$Server:/home/shared/Lettucebox/$USER /home/$USER/Lettucebox/
-
-/home/$USER/.Lettucebox/sync.sh&
-disown
 
 # Setup folder to sync
 mkdir /home/$USER/Lettucebox
@@ -42,3 +38,9 @@ mkdir /home/$USER/Lettucebox
 
 ./scripts/autofill_keygen.sh $USER $Server
 ssh shared@$Server mkdir /home/shared/Lettucebox/$USER
+
+rsync --times -as -e " ssh -i ~/.ssh/Lettucebox" shared@$Server:/home/shared/Lettucebox/$USER/ /home/$USER/Lettucebox/
+
+
+/home/$USER/.Lettucebox/sync.sh&
+disown
