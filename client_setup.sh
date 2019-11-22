@@ -15,19 +15,23 @@ echo "src = '/home/$USER/Lettucebox/'" >> $Server.py
 cat scripts/sync.py >> $Server.py
 chmod 0777 $Server.py
 mkdir /home/$USER/.Lettucebox
-mv $Server.py /home/$USER/.Lettucebox/$Server.py
+mv $Server.py /home/$USER/.Lettucebox/$Server.py\
 
+echo "
+while true
+do
+    ./pebble.lettucebowler.net.py
+    sleep 1m
+done" >> /home/$USER/.Lettucebox/sync.sh
+sudo update-rc.d /home/$USER/.Lettucebox/sync.sh& default
 
-sudo echo "#run every minute" >> /etc/cron.d/$Server.cron
-sudo echo "*/5 * * * *   $USER  python /home/$USER/.Lettucebox/$Server.py" >> /etc/cron.d/$Server.cron
-sudo echo "\n" >> /etc/cron.d/$Server.cron
-sudo echo "# run script after system (re)boot" >> /etc/cron.d/$Server.cron
-sudo echo "@reboot       $USER  python /path/to/script.py" >> /etc/cron.d/$Server.cron
+/home/$USER/.Lettucebox/sync.sh&
+disown
 
 # Setup folder to sync
 mkdir /home/$USER/Lettucebox
 
 #install dependencies
 
-./scripts/autofill_keygen.sh $Server
+./scripts/autofill_keygen.sh $USER $Server
 ssh shared@$Server mkdir /home/shared/Lettucebox/$USER

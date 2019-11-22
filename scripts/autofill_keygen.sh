@@ -2,14 +2,17 @@
 
 set timeout -1
 
-spawn ./scripts/keygen_and_transfer.sh [lindex $argv 0]
+set username [lindex $argv 0];
+set host [lindex $argv 1];
+
+spawn ./scripts/keygen_and_transfer.sh $username $host
 
 expect ":"
-send "/home/lettucebowler/.ssh/Lettucebox\r"
+send "/home/$username/.ssh/Lettucebox\r"
 expect ":"
 send "\r"
 expect ":"
 send "\r"
-expect "password:"
+expect "'s password:"
 send "shared\r"
 expect eof
