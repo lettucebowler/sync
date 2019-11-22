@@ -13,7 +13,7 @@ except KeyboardInterrupt:
     sys.exit(1)
 
 #sync files from server to local folder
-cmd2 = "rsync --times -as -e \" ssh -i ~/.ssh/Lettucebox\" '" + dest + "' '" + src + "'"
+cmd2 = "rsync --times -as --delete -e \" ssh -i ~/.ssh/Lettucebox\" '" + dest + "' '" + src + "'"
 process2 = subprocess.Popen(cmd2, shell=True)
 try:
     process2.wait()
