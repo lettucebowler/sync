@@ -20,7 +20,7 @@ mv $Server.py /home/$USER/.Lettucebox/$Server.py\
 echo "
 while true
 do
-    ./pebble.lettucebowler.net.py
+    /home/$USER/.Lettucebox/pebble.lettucebowler.net.py
     sleep 1m
 done" >> /home/$USER/.Lettucebox/sync.sh
 sudo chmod 0755 /home/$USER/.Lettucebox/sync.sh
