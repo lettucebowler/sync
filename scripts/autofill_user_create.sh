@@ -45,21 +45,11 @@ if {$force_conservative} {
 set timeout -1
 spawn ./scripts/user_create.sh
 match_max 100000
-expect -exact "Adding user `shared' ...\r
-Adding new group `shared' (1001) ...\r
-Adding new user `shared' (1001) with group `shared' ...\r
-Creating home directory `/home/shared' ...\r
-Copying files from `/etc/skel' ...\r
-New password: "
+expect "New password: "
 send -- "shared\r"
-expect -exact "\r
-Retype new password: "
+expect "password: "
 send -- "shared\r"
-expect -exact "\r
-passwd: password updated successfully\r
-Changing the user information for shared\r
-Enter the new value, or press ENTER for the default\r
-	Full Name \[\]: "
+expect "Full Name \[\]: "
 send -- "\r"
 expect -exact "\r
 	Room Number \[\]: "
