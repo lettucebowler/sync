@@ -49,21 +49,16 @@ expect "password: "
 send -- "shared\r"
 expect "password: "
 send -- "shared\r"
-expect "Full Name \[\]: "
+expect ": "
 send -- "\r"
-expect -exact "\r
-	Room Number \[\]: "
+expect ": "
 send -- "\r"
-expect -exact "\r
-	Work Phone \[\]: "
+expect ": "
 send -- "\r"
-expect -exact "\r
-	Home Phone \[\]: "
+expect ": "
 send -- "\r"
-expect -exact "\r
-	Other \[\]: "
+expect ": "
 send -- "\r"
-expect -exact "\r
-Is the information correct? \[Y/n\] "
+expect "\] "
 send -- "y\r"
 expect eof
