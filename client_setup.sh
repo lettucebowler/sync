@@ -8,6 +8,7 @@ echo "dest = 'shared@$Server:/home/shared/$USER/Lettucebox/'" >> $Server.py
 echo "src = '/home/$USER/Lettucebox/'" >> $Server.py
 cat scripts/sync.py >> $Server.py
 chmod 0777 $Server.py
+mv $Server.py /home/$USER/.Lettucebox/$Server.py
 
 # Setup folder to sync
 mkdir /home/$USER/Lettucebox
