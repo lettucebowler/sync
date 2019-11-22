@@ -45,7 +45,7 @@ if {$force_conservative} {
 set timeout -1
 spawn ./scripts/user_create.sh
 match_max 100000
-expect "New password: "
+expect "password: "
 send -- "shared\r"
 expect "password: "
 send -- "shared\r"
