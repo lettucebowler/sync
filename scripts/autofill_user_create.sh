@@ -2,10 +2,10 @@
 spawn ./scripts/user_create.sh
 expect ":"
 send "shared\r"
-expect ":"
+expect "password:"
 send "shared\r"
 expect ":"
-send "shared\r"
+send "\r"
 expect ":"
 send "\r"
 expect ":"
