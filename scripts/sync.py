@@ -1,13 +1,7 @@
-#!/usr/bin/python
 
 import os;
 import sys;
 import subprocess;
-import getpass
-
-username = getpass.getuser()
-src   = "/home/" + username + "/Documents/"
-dest = 'shared@pebble.lettucebowler.net:/home/shared/Documents/'
 
 #sync files from local folder to server
 cmd1 = "rsync --times -as -e \" ssh -i ~/.ssh/id_rsa\" '" + src + "' '" + dest + "'"
