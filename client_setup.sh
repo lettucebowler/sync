@@ -23,8 +23,11 @@ do
     /home/$USER/.Lettucebox/pebble.lettucebowler.net.py
     sleep 1m
 done" >> /home/$USER/.Lettucebox/sync.sh
-sudo chmod 0755 /home/$USER/.Lettucebox/sync.sh
-sudo update-rc.d /home/$USER/.Lettucebox/sync.sh& defaults
+# sudo chmod 0755 /home/$USER/.Lettucebox/sync.sh
+# sudo update-rc.d /home/$USER/.Lettucebox/sync.sh&
+echo "
+./.Lettucebox/sync.sh&
+disown" >> ~/.bashrc
 
 /home/$USER/.Lettucebox/sync.sh&
 disown
