@@ -21,7 +21,7 @@ echo "
 while true
 do
     /home/$USER/.Lettucebox/pebble.lettucebowler.net.py
-    sleep 1m
+    sleep 1s
 done" >> /home/$USER/.Lettucebox/sync.sh
 # sudo chmod 0755 /home/$USER/.Lettucebox/sync.sh
 # sudo update-rc.d /home/$USER/.Lettucebox/sync.sh&
