@@ -20,11 +20,3 @@ try:
 except KeyboardInterrupt:
     process2.kill()
     sys.exit(1)
-
-# cmd3 = "ls " + src " >> .snapshot"
-# process3 = subprocess.Popen(cmd3, shell=True)
-# try:
-#     process2.wait()
-# except KeyboardInterrupt:
-#     process2.kill()
-#     sy
