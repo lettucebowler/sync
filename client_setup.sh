@@ -23,11 +23,14 @@ do
     /home/$USER/.Lettucebox/pebble.lettucebowler.net.py
     sleep 1s
 done" >> /home/$USER/.Lettucebox/sync.sh
-# sudo chmod 0755 /home/$USER/.Lettucebox/sync.sh
+sudo chmod 0755 /home/$USER/.Lettucebox/sync.sh
+sudo chown root:root /home/$USER/.Lettucebox/sync.sh
 # sudo update-rc.d /home/$USER/.Lettucebox/sync.sh&
 echo "
-./.Lettucebox/sync.sh&
+/home/$USER/.Lettucebox/sync.sh&
 disown" >> ~/.bashrc
+
+rsync --times -as --delete -e "ssh -i ~/.ssh/Lettucebox"  + shared@$Server:/home/shared/Lettucebox/$USER /home/$USER/Lettucebox/
 
 /home/$USER/.Lettucebox/sync.sh&
 disown
