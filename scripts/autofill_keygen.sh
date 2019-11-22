@@ -10,6 +10,6 @@ expect ":"
 send "\r"
 expect ":"
 send "\r"
-expect ":"
+expect "password:"
 send "shared\r"
 expect eof
