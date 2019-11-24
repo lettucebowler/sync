@@ -45,5 +45,9 @@ ssh shared@$Server rm /home/shared/Lettucebox/$USER/\$1
 rm -rf /home/$USER/Lettucebox/\$s1" >> /home/$USER/Lettucebox/del.sh
 chmod 0700 /home/$USER/Lettucebox/del.sh
 
+echo "#!bin/bash
+ssh shared@Server touch /home/shared/Lettucebox/$USER/\$1
+touch /home/$USER/Lettucebox/$1" >> /home/$USEr/Lettucebox/make.sh
+
 /home/$USER/.Lettucebox/sync.sh&
 disown

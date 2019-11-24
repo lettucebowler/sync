@@ -4,7 +4,7 @@ import sys;
 import subprocess;
 
 #sync files from local folder to server
-cmd1 = "rsync --times -as -e \" ssh -i ~/.ssh/Lettucebox\" '" + src + "' '" + dest + "'"
+cmd1 = "rsync --times -as --delete -e \" ssh -i ~/.ssh/Lettucebox\" '" + dest + "' '" + src + "'"
 # cmd1 = "rsync --times -as -e \" ssh -i ~/.ssh/Lettucebox\" '" + dest + "' '" + src + "'"
 process1 = subprocess.Popen(cmd1, shell=True)
 try:
@@ -14,7 +14,7 @@ except KeyboardInterrupt:
     sys.exit(1)
 
 #sync files from server to local folder
-cmd2 = "rsync --times -as --delete -e \" ssh -i ~/.ssh/Lettucebox\" '" + dest + "' '" + src + "'"
+cmd2 = "rsync --times -as --delete -e \" ssh -i ~/.ssh/Lettucebox\" '" + src + "' '" + dest + "'"
 # cmd2 = "rsync --times -as --delete -e \" ssh -i ~/.ssh/Lettucebox\" '" + src + "' '" + dest + "'"
 process2 = subprocess.Popen(cmd2, shell=True)
 try:
