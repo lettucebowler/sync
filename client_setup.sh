@@ -3,7 +3,6 @@
 sudo apt install python
 sudo apt install python-pip
 pip install pyinstaller
-sudo apt install cron
 sudo apt install expect
 
 # Generate Python script to send out files to sync server.
