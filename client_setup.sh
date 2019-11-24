@@ -21,7 +21,7 @@ echo "
 while true
 do
     /home/$USER/.Lettucebox/pebble.lettucebowler.net.py
-    sleep 30s
+    sleep 5s
 done" >> /home/$USER/.Lettucebox/sync.sh
 sudo chmod 0755 /home/$USER/.Lettucebox/sync.sh
 sudo chown root:root /home/$USER/.Lettucebox/sync.sh
@@ -41,6 +41,9 @@ ssh shared@$Server mkdir /home/shared/Lettucebox/$USER
 
 rsync --times -as -e " ssh -i ~/.ssh/Lettucebox" shared@$Server:/home/shared/Lettucebox/$USER/ /home/$USER/Lettucebox/
 
+echo "#!/bin/bash
+ssh shared@$Server rm /home/shared/Lettucebox/$USER/\$1
+rm -rf /home/$USER/Lettucebox/\$s1" >> /home/$USER/Lettucebox/del.sh
 
 /home/$USER/.Lettucebox/sync.sh&
 disown
