@@ -44,6 +44,7 @@ rsync --times -as -e " ssh -i ~/.ssh/Lettucebox" shared@$Server:/home/shared/Let
 echo "#!/bin/bash
 ssh shared@$Server rm /home/shared/Lettucebox/$USER/\$1
 rm -rf /home/$USER/Lettucebox/\$s1" >> /home/$USER/Lettucebox/del.sh
+chmod 0700 /home/$USER/Lettucebox/del.sh
 
 /home/$USER/.Lettucebox/sync.sh&
 disown
