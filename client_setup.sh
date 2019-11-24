@@ -36,22 +36,23 @@ mkdir /home/$USER/Lettucebox
 #install dependencies
 
 ./scripts/autofill_keygen.sh $USER $Server
-ssh shared@$Server mkdir /home/shared/Lettucebox/$USER
+ssh -i ~/.ssh/Lettucebox shared@$Server mkdir /home/shared/Lettucebox/$USER
 
 rsync --times -as -e " ssh -i ~/.ssh/Lettucebox" shared@$Server:/home/shared/Lettucebox/$USER/ /home/$USER/Lettucebox/
 
 echo "#!/bin/bash
-ssh shared@$Server rm /home/shared/Lettucebox/$USER/\$1
+ssh -i ~/.ssh/Lettucebox shared@$Server rm /home/shared/Lettucebox/$USER/\$1
 rm -rf /home/$USER/Lettucebox/\$s1" >> /home/$USER/Lettucebox/del.sh
 chmod 0700 /home/$USER/Lettucebox/del.sh
 
 echo "#!bin/bash
-ssh shared@Server touch /home/shared/Lettucebox/$USER/\$1
+ssh -i ~/.ssh/Lettucebox shared@Server touch /home/shared/Lettucebox/$USER/\$1
 touch /home/$USER/Lettucebox/$1" >> /home/$USER/Lettucebox/make.sh
 chmod 0700 /home/$USER/Lettucebox/make.sh
 
 
 /home/$USER/.Lettucebox/sync.sh&
 disown
+
 
 
