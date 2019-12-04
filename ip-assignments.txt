@@ -1,0 +1,15 @@
+Top Left Table
+Router : 10.0.4.1/16
+Computers : 10.0.4.2/16 through 10.0.4.9/16
+
+Top Right Table
+Router : 10.0.5.1/16
+Computers : 10.0.5.2/16 through 10.0.5.9/16
+
+Bottom Left Table
+Router : 10.0.6.1/16
+Computers : 10.0.6.2/16 through 10.0.6.9/16
+
+Bottom Right Table
+Router : 10.0.7.1/16
+Computers : 10.0.7.2/16 through 10.0.7.9/16
